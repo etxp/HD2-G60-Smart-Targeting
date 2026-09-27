@@ -1,6 +1,6 @@
 # Artwork provenance
 
-Both covers use the G-60 flight close-up at 83.5 seconds in the author's supplied gameplay recording.
+Both covers use the G-60 flight close-up at 25.5 seconds in the author's supplied gameplay recording.
 The original frame is `assets/cover-source.png`; the full video is not included.
 OpenAI's built-in image generation tool removed the HUD, reframed the scene and applied the family's charcoal/yellow typography.
 The C4 Quick Actions and Grenade Contact Detonation covers were visual style references.
