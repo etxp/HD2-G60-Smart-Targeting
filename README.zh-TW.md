@@ -2,7 +2,7 @@
 
 ![G-60 Smart Targeting](assets/cover-16x9.png)
 
-[English](README.md) · **0.1 beta** · [下載](https://github.com/etxp/HD2-G60-Smart-Targeting/releases)
+[English](README.md) · **0.1 beta.1** · [下載](https://github.com/etxp/HD2-G60-Smart-Targeting/releases)
 
 讓 G-60 忽略一般小怪，依照順位追蹤指定蟲族重型單位，並在調整過的弱點附近引爆。
 同一隻怪只會分配一顆手雷，避免多顆同時追同一個目標。
@@ -25,12 +25,13 @@
 ## 安裝
 
 1. 退出遊戲，安裝 [Bingus Shared Loader](https://github.com/CowboyBingus/BingusSharedLoader)，需要 API 1、addon discovery（v15 以上）。
-2. 從 Releases 下載 **HD2-G60-Smart-Targeting-0.1-beta.zip**，匯入模組管理器。原始碼 ZIP 不是安裝包。
+2. 從 Releases 下載 **HD2-G60-Smart-Targeting-0.1-beta.1.zip**，匯入模組管理器。原始碼 ZIP 不是安裝包。
 3. 停用舊版 G-60，只啟用本版，完成 Purge / Deploy 後重新開啟遊戲。
 
 解除安裝時停用模組、Purge / Deploy，再重新開啟遊戲即可。模組 GUID 與資源名稱保留原本設定。
 日誌位於 loader 的記錄目錄，檔名為 `G60SmartTargeting.log`。
-0.1 beta 使用與開發版 0.5.19 完全相同的遊戲程式，因此日誌版本仍顯示 `0.5.19-experimental`。
+Beta.1 已將日誌改為可選，無法建立或寫入日誌時仍可啟動和運作。
+日誌版本顯示 `0.5.20-experimental`。
 
 ## 測試狀態
 

@@ -7,14 +7,21 @@ local state={version='@@VERSION@@-experimental',filter_enabled=false,designed_ta
     experimental=true,native_lifetime_verified=false,state='starting'}
 rawset(_G,'G60SmartTargeting',state)
 local log,host
-local function close() if log then pcall(log.close,log);log=nil end end
+local function close()
+    local handle=log;log=nil
+    if handle then pcall(function() handle:close() end) end
+end
 local ok,why=pcall(function()
     local ffi=require('ffi')
     assert(ffi.os=='Windows' and ffi.abi('64bit'),'Windows x64 required')
     @@MODULES@@
     local loader=assert(rawget(_G,'CowboyBingusModLoader'),'loader unavailable')
-    assert(loader.api==1 and type(loader.open_log)=='function','loader API unavailable')
-    log=assert(loader.open_log('G60SmartTargeting.log'),'log unavailable')
+    assert(loader.api==1,'loader API unavailable')
+    -- Diagnostics are optional; logging failures must not disable gameplay.
+    if type(loader.open_log)=='function' then
+        local opened,handle=pcall(loader.open_log,'G60SmartTargeting.log')
+        if opened then log=handle end
+    end
     local written,lines=0,0
     local last_issues,issue_keys={},0
     local function emit(line)
@@ -40,7 +47,7 @@ local ok,why=pcall(function()
             and not line:match('^arrival_detonated;') and not line:match('^arrival_retired;')
             and not line:match('^titan_released;') then return end
         if written+#line+1>262144 then close();return end
-        local good=pcall(function() assert(log:write(line..'\n'));log:flush() end)
+        local good=pcall(function() assert(log:write(line..'\n'));assert(log:flush()) end)
         if not good then close() else written=written+#line+1 end
     end
     ffi.cdef[[void *GetModuleHandleA(const char *);void *GetCurrentProcess(void);
@@ -89,7 +96,7 @@ local ok,why=pcall(function()
 end)
 if not ok then
     state.filter_enabled=false;state.state='disabled: '..tostring(why)
-    if log then pcall(log.write,log,state.state..'\n') end
+    if log then pcall(function() log:write(state.state..'\n') end) end
     close()
 end
 print('[G60SmartTargeting] '..state.state)

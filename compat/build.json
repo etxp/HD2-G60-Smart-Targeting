@@ -1,6 +1,6 @@
 {
-  "public_version": "0.1-beta",
-  "runtime_version": "0.5.19",
+  "public_version": "0.1-beta.1",
+  "runtime_version": "0.5.20",
   "aliases": {
     "util": "U",
     "small_filter": "Filter",

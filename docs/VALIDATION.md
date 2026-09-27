@@ -1,6 +1,9 @@
 # Validation boundaries
 
-0.1 beta publishes the unchanged 0.5.19 runtime payload. `evidence/tested-payload.json` records its entry and deployment hashes.
+The original 0.1 beta published the unchanged 0.5.19 runtime payload. `evidence/tested-payload.json` preserves those hashes.
+Beta.1 changes only entry logging and the runtime version. `evidence/release-payload.json` records the new release hashes;
+`evidence/logging-windows-validation.json` records its isolated Windows results. Portable tests cover failed log creation,
+write/flush/close failures and absent logging service. The beta.1 change has not been retested in a live game.
 The private development suite passed 535 checks across Lua/LuaJIT and Python; `evidence/development-validation.json`
 records that historical result. The portable public subset is rerun by `scripts/check.py`; it has its own count.
 Windows fixture results are in `evidence/windows-validation.json`.

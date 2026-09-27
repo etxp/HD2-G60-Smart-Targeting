@@ -4,7 +4,7 @@ import json
 import os
 from pathlib import Path
 import subprocess
-from build import ROOT, assemble
+from build import ROOT, assemble, sha
 
 
 def main():
@@ -45,6 +45,7 @@ def main():
         output.append(result.stdout + result.stderr)
         assert result.returncode == 0, output[-1]
     report = {'passed': True, 'game_process_attached': False, 'native_lifetime_verified': False,
+              'entry_sha256': sha(entry.read_bytes()),
               'output': '\n'.join(output)}
     (folder / 'validation.json').write_text(json.dumps(report, indent=2) + '\n')
     print(report['output'])

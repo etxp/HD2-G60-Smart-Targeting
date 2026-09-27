@@ -71,7 +71,7 @@ def package_files():
     entry = assemble()
     body = ('-- HD2-Addon: ' + NAME + '\n').encode() + entry
     files = {ARCHIVE: archive(body), ARCHIVE + '.stream': b'', ARCHIVE + '.gpu_resources': b''}
-    title = 'HD2 G-60 Smart Targeting 0.1 beta'
+    title = 'HD2 G-60 Smart Targeting ' + VERSION.replace('-', ' ')
     description = ('G-60 priority targeting, tuned weakpoints, one grenade per target, and locally marked '
                    'bug holes, nests and objective eggs. Experimental original native calls; '
                    'requires Bingus Shared Loader API 1. See compatibility and beta limitations.')

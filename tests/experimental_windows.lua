@@ -215,4 +215,13 @@ test('assembled addon refuses absent game and leaves the existing callback intac
     assert(update==old and state.native_lifetime_verified==false and state.designed_targets_only==true)
     assert(state.mark_priority_enabled==false and state.exclusive_targets==true)
 end)
+test('assembled addon reaches the game guard when optional logging is unavailable',function()
+    for _,loader in ipairs({{api=1},{api=1,open_log=function() return nil,'denied' end},
+        {api=1,open_log=function() error('denied') end}}) do
+        local old=function() end;update=old;CowboyBingusModLoader=loader;G60SmartTargeting=nil
+        local state=assert(loadfile(G60_ENTRY))()
+        assert(not state.filter_enabled and state.state:find('game module unavailable',1,true),state.state)
+        assert(update==old and state.native_lifetime_verified==false)
+    end
+end)
 print('RESULT '..passed..' passed; 0 failed (experimental runtime integration; no game session)')

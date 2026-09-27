@@ -2,7 +2,7 @@
 
 ![G-60 Smart Targeting](assets/cover-16x9.png)
 
-[繁體中文](README.zh-TW.md) · **0.1 beta** · [Downloads](https://github.com/etxp/HD2-G60-Smart-Targeting/releases)
+[繁體中文](README.zh-TW.md) · **0.1 beta.1** · [Downloads](https://github.com/etxp/HD2-G60-Smart-Targeting/releases)
 
 G-60 targeting for selected Terminid heavies, with tuned attack positions and one grenade assigned to each target.
 Mark a supported bug hole, Shrieker Nest, Spore Spewer or objective egg sack to send a grenade there first,
@@ -24,13 +24,14 @@ See [supported targets and attack sites](docs/TARGETS.md).
 ## Install
 
 1. Close the game and install [Bingus Shared Loader](https://github.com/CowboyBingus/BingusSharedLoader), API 1 with addon discovery (v15+).
-2. Download **HD2-G60-Smart-Targeting-0.1-beta.zip** from Releases and import it into your mod manager.
+2. Download **HD2-G60-Smart-Targeting-0.1-beta.1.zip** from Releases and import it into your mod manager.
    The source ZIP is for development, not installation.
 3. Disable older G-60 packages, enable this version, and Purge / Deploy before restarting the game.
 
 To uninstall, disable this addon, Purge / Deploy, and restart. The existing mod GUID and Lua resource identity are preserved.
 The runtime log is `G60SmartTargeting.log` in the loader's log directory.
-This public beta packages the unchanged 0.5.19 development payload, so the log still starts with `version=0.5.19-experimental`.
+Beta.1 makes diagnostic logging optional. Missing or failed log files no longer prevent startup or operation.
+The runtime identifies itself as `version=0.5.20-experimental`.
 
 ## Beta status
 

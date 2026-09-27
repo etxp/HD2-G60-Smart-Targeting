@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1 beta.1
+
+- Make diagnostic logging optional: missing log service, open failures and write/flush/close failures no longer block the addon.
+- Runtime version 0.5.20. Targeting policies, native compatibility checks and ownership checks retain their existing behavior.
+- Added portable logging regressions and an assembled-entry Windows check. No new live-game test is claimed.
+
 ## 0.1 beta
 
 First public beta, based on development build 0.5.19.
